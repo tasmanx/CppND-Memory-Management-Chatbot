@@ -74,11 +74,31 @@ ChatBot::ChatBot(const ChatBot &&source)
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
     _image = source._image;
-    
+
     _chatLogic = nullptr;
     _rootNode = nullptr;
     _image = NULL;  // wxWidgets used NULL and not nullptr
-} 
+}
+
+ChatBot &ChatBot::operator=(const ChatBot &&source) 
+{
+    std::cout << "ChatBot Move Assignment Operator" << std::endl;
+
+    if (this == &source)
+        return *this;
+    
+    delete _image;
+
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _image = source._image;
+
+    _chatLogic = nullptr;
+    _rootNode = nullptr;
+    _image = NULL;  // wxWidgets used NULL and not nullptr
+
+    return *this;
+}
 
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {
