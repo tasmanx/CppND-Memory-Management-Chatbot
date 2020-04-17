@@ -30,9 +30,8 @@ private:
     std::vector<std::string> _answers;
 
 public:
-    // constructor / destructor
+    // constructor
     GraphNode(int id);
-    ~GraphNode();
 
     // getter / setter
     int GetID() { return _id; }
