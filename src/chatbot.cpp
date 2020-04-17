@@ -67,6 +67,19 @@ ChatBot &ChatBot::operator=(const ChatBot &source)
     return *this;
 }
 
+ChatBot::ChatBot(const ChatBot &&source) 
+{
+    std::cout << "ChatBot Move Constructor" << std::endl;
+
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _image = source._image;
+    
+    _chatLogic = nullptr;
+    _rootNode = nullptr;
+    _image = NULL;  // wxWidgets used NULL and not nullptr
+} 
+
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {
     // loop over all edges and keywords and compute Levenshtein distance to query

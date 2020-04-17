@@ -27,8 +27,8 @@ public:
     ~ChatBot();                                 // destructor
     ChatBot(const ChatBot &source);             // copy constructor
     ChatBot &operator=(const ChatBot &source);  // copy assignment operator
+    ChatBot(const ChatBot &&source);            // move constructor
     //TODO::
-    //ChatBot(const ChatBot &&source);            // move constructor
     //ChatBot &operator=(const ChatBot &&source); // move assignment operator
 
     // getters / setters
