@@ -42,8 +42,8 @@ ChatBot::~ChatBot()
     }
 }
 
-ChatBot::ChatBot(const ChatBot &source) 
-{
+ChatBot::ChatBot(const ChatBot &source)
+{   
     std::cout << "ChatBot Copy Constructor" << std::endl;
 
     _chatLogic = source._chatLogic;
@@ -51,13 +51,13 @@ ChatBot::ChatBot(const ChatBot &source)
     _image = new wxBitmap(*source._image);
 }
 
-ChatBot &ChatBot::operator=(const ChatBot &source) 
+ChatBot &ChatBot::operator=(const ChatBot &source)
 {
     std::cout << "ChatBot Copy Assignment Operator" << std::endl;
 
     if (this == &source)
         return *this;
-    
+
     delete _image;
 
     _chatLogic = source._chatLogic;
@@ -67,7 +67,7 @@ ChatBot &ChatBot::operator=(const ChatBot &source)
     return *this;
 }
 
-ChatBot::ChatBot(const ChatBot &&source) 
+ChatBot::ChatBot(ChatBot &&source)
 {
     std::cout << "ChatBot Move Constructor" << std::endl;
 
@@ -75,27 +75,27 @@ ChatBot::ChatBot(const ChatBot &&source)
     _rootNode = source._rootNode;
     _image = source._image;
 
-    _chatLogic = nullptr;
-    _rootNode = nullptr;
-    _image = NULL;  // wxWidgets used NULL and not nullptr
+    source._chatLogic = nullptr;
+    source._rootNode = nullptr;
+    source._image = NULL;  // wxWidgets used NULL and not nullpt
 }
-
-ChatBot &ChatBot::operator=(const ChatBot &&source) 
+    
+ChatBot &ChatBot::operator=(ChatBot &&source)
 {
     std::cout << "ChatBot Move Assignment Operator" << std::endl;
 
     if (this == &source)
         return *this;
-    
+
     delete _image;
 
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
     _image = source._image;
 
-    _chatLogic = nullptr;
-    _rootNode = nullptr;
-    _image = NULL;  // wxWidgets used NULL and not nullptr
+    source._chatLogic = nullptr;
+    source._rootNode = nullptr;
+    source._image = NULL;  // wxWidgets used NULL and not nullpt
 
     return *this;
 }
