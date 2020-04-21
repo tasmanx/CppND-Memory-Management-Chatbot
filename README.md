@@ -6,9 +6,9 @@ This is the project for the third course in the [Udacity C++ Nanodegree Program]
 
 The ChatBot code creates a dialogue where users can ask questions about some aspects of memory management in C++. After the knowledge base of the chatbot has been loaded from a text file, a knowledge graph representation is created in computer memory, where chatbot answers represent the graph nodes and user queries represent the graph edges. After a user query has been sent to the chatbot, the Levenshtein distance is used to identify the most probable answer. The code is fully functional as-is and uses raw pointers to represent the knowledge graph and interconnections between objects throughout the project.
 
-In this project you will analyze and modify the program. Although the program can be executed and works as intended, no advanced concepts as discussed in this course have been used; there are currently no smart pointers, no move semantics and not much thought has been given to ownership or memory allocation.
+In this project I analyzed and modified the program. The program worked as intended. There were no smart pointers, no move semantics and not much thought was given to ownership or memory allocation.
 
-Your goal is to use the course knowledge to optimize the ChatBot program from a memory management perspective. There are a total of five specific tasks to be completed, which are detailed below.
+My goal was to use the course knowledge to optimize the ChatBot program from a memory management perspective. There were a total of five specific tasks to be completed, which are detailed below.
 
 ## Dependencies for Running Locally
 * cmake >= 3.11
@@ -35,9 +35,9 @@ Your goal is to use the course knowledge to optimize the ChatBot program from a 
 
 ## Project Task Details
 
-Currently, the program crashes when you close the window. There is a small bug hidden somewhere, which has something to do with improper memory management. So your first warm-up task will be to find this bug and remove it. This should familiarize you with the code and set you up for the rest of the upcoming tasks. Have fun debugging!
+The program crashed after closing the window. There was a small bug with deletion of ChatBot class' (_chatBot) instance twice.
 
-Aside from the bug mentioned above, there are five additional major student tasks in the Memory Management chatbot project, which are:
+Aside from the bug mentioned above, there was five additional major student tasks:
 
 ### Task 1 : Exclusive Ownership 1
 In file `chatgui.h` / `chatgui.cpp`, make `_chatLogic` an exclusive resource to class `ChatbotPanelDialog` using an appropriate smart pointer. Where required, make changes to the code such that data structures and function parameters reflect the new structure. 
